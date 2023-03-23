@@ -3,7 +3,7 @@ from random import randint
 n = int(input("введите n: "))
 num_list = []
 for _ in range(n):
-    num_list.append(int(randint(0,9)))
+    num_list.append(_+1)
 
 x = int(input("введите x: "))
 x_count = 0
