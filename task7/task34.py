@@ -1,29 +1,23 @@
 def count_vowels(word):
-    """
-    Функция для подсчета количества гласных букв в слове
-    """
-    vowels = "aeiouyAEIOUY"  # гласные буквы в английском языке
+    vowels = "аоуыэеёиюяАОУЫЭЕЁИЮЯ"
     count = 0
     for letter in word:
         if letter in vowels:
             count += 1
     return count
 
-
 def check_rhythm(poem):
-    """
-    Функция для проверки ритма в стихотворении
-    """
-    words = poem.split()  # разделение стихотворения на слова
-    syllables = []  # список количества слогов в каждом слове
+    words = poem.split()
+    syllables = []
     for word in words:
         syllables.append(count_vowels(word))
-    if len(set(syllables)) == 1:  # проверка, что все слова имеют одинаковое количество слогов
+        #print(syllables)
+    if len(set(syllables)) == 1:
         return "Парам пам-пам"
+        #print(len(set(syllables)))
     else:
         return "Пам парам"
 
 
 poem = input("Введите стихотворение: ")
 print(check_rhythm(poem))
-#
