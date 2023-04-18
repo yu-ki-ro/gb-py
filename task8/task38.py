@@ -6,6 +6,7 @@ def add_contact():
     with open("phonebook.txt", "a", encoding="utf-8") as f:
         f.write(f"{surname},{name},{patronymic},{phone}\n")
     print("Контакт добавлен в телефонный справочник.")
+
 def search_contact():
     search_term = input("Введите фамилию, имя или отчество для поиска: ")
     with open("phonebook.txt", "r", encoding="utf-8") as f:
@@ -13,16 +14,19 @@ def search_contact():
             surname, name, patronymic, phone = line.strip().split(",")
             if search_term in [surname, name, patronymic]:
                 print(f"{surname} {name} {patronymic}: {phone}")
+
 def print_data():
     with open("phonebook.txt", "r", encoding="utf-8") as f1:
         for line in f1:
             print(line)
     print("Все данные отображены.")
+
 def export_data():
     with open("phonebook.txt", "r", encoding="utf-8") as f1,  open("ex_phonebook.txt", "w", encoding="utf-8") as f2:
         for line in f1:
             f2.write(line)
     print("Данные экспортированы в файл ex_phonebook.txt.")
+
 def import_data():
     filename = input("Введите имя файла для импорта: ")
     try:
@@ -34,6 +38,7 @@ def import_data():
         print("Данные импортированы в телефонный справочник.")
     except FileNotFoundError:
         print("Файл не найден.")
+
 
 def change_data():
     search_term = input("Введите фамилию, имя или отчество для для изменения: ")
@@ -61,6 +66,7 @@ def change_data():
                 else:
                     fw.write(line)
 
+
 def remove_data():
     search_term = input("Введите фамилию, имя или отчество для для удаления: ")
     with open("phonebook.txt", "r", encoding="utf-8") as fr:
@@ -72,6 +78,7 @@ def remove_data():
                     print("Удалено")
                 else:
                     fw.write(line)
+
 def main():
     while True:
         print("Выберите действие:")
